@@ -1,0 +1,26 @@
+{
+  "source": "User-supplied RINGS_Original_Source_2026-11-18(1).zip",
+  "files": {
+    "original/rings_cifar10/Makefile": "28d63b0aa48784ab86bbe757795161a4c5e4f8692ffbd8d0593da64b1d1e085e",
+    "original/rings_cifar10/PUBLICATION_NOTES_RU.md": "10373e4d537bfb3627d50814ea0c223aab8efbf462573f8876f942c2477eef01",
+    "original/rings_cifar10/README_RU.md": "de97ef345046acd71ddd5540b8849fb38ae0b80937c987916fe99df8cac62f80",
+    "original/rings_cifar10/benchmark.py": "5a7de2ab99ff31705c5c04bab1134a49b77e72d395059d2cf3bc64e02cf948cc",
+    "original/rings_cifar10/c_api.cpp": "75b05a023f665914f8047521edca78bbfbd3b3797e80e7be7dab134da371f26f",
+    "original/rings_cifar10/c_api.h": "d64d36c020cba1249598a251e6f9fec4bc7102288e9adae50809de62e57be873",
+    "original/rings_cifar10/dataset.py": "4b107a97c05c8d3c68eee688b71777e2475d1f7f8b9b0cb786f17a2468b5736e",
+    "original/rings_cifar10/demo.py": "d79507c6c032022d92ca37d301c1cbf464a7aa4ab0b9e5575c60a30ef8ea69b8",
+    "original/rings_cifar10/experiment.py": "927065f87b588101bf643a870f8d191bfa5083d9662ab82bf841bee1ef05da72",
+    "original/rings_cifar10/mc_api.cpp": "4938b1c54fe98c3d05e1497386925e20e19cb09938acb45e3dd49729d929d353",
+    "original/rings_cifar10/mc_tests.cpp": "20f43b159371a5065712c27687c627f58a8016cdc109fb0f320fd026673a4c11",
+    "original/rings_cifar10/multiclass.hpp": "2af9049864d798aca4c08a638a7ef0fd6291d118dce4e5dfa7b72910d6737a2d",
+    "original/rings_cifar10/multiclass.py": "653e760565ab5880f9a344f487d3298371a2c706b070d89f5a34d032a821af48",
+    "original/rings_cifar10/native.py": "93287b47a13a16f15968f1583b7ad7b21d99712218894d819868a60f6cdb2ffa",
+    "original/rings_cifar10/plot_ablation.py": "bead55e1456acf8eb85a625950aed7c55b9a9ea1f4d546b6b90a2ec04231adcc",
+    "original/rings_cifar10/reference/binary_cv_summary.json": "9abdc93a77ba1d48bbba74a9573aa7333c37fbc1a76812f5ceaecb0432b46699",
+    "original/rings_cifar10/reference/binary_gain_validation.json": "7bd80daf05631295cd7a4cfc3e658bd02562ca5b98f9d6d89ba6944f7816b24d",
+    "original/rings_cifar10/reference/initial_angles.json": "3aada83132f52ac6a96ee21ae361df7b0da53f3a115d0bd7e17d4012d73a58f0",
+    "original/rings_cifar10/requirements.txt": "33c80c7d2cce826feeeee8b292fef153de9e227e8877d1afdf95d28df2f16c30",
+    "original/rings_cifar10/rings.hpp": "50c90b014f2738f92bb1677f8baf93b3178bfeb75188391b730931719425e588",
+    "original/rings_cifar10/test_multiclass.py": "a466d4d12a36469572d62d659a4b815d3f8208523c96b81164b833747d70b5d6"
+  }
+}

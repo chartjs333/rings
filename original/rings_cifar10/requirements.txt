@@ -1,0 +1,7 @@
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+threadpoolctl
+matplotlib
+# Training only; tested with 2.15.0+cpu.
+torch==2.15.0
