@@ -1,0 +1,29 @@
+{
+  "format": "RINGSCSR-v1-little-endian",
+  "source_kind": "real FlyWire v783 full supplied table",
+  "source_files": {
+    "upload/Completeness_783(1).txt": {
+      "bytes": 3327347,
+      "sha256": "bbb847a4cc2caaa7a16349722d220c087317b946d148d4d592d94d250617a311"
+    },
+    "upload/Connectivity_783(1).parquet": {
+      "bytes": 100804642,
+      "sha256": "efeb23fb99098e9c390f6869969b2a121a2ee92c833cfc45ecb2c1d8e1af0347"
+    }
+  },
+  "matches_repository_pinned_source_hashes": true,
+  "neurons": 138639,
+  "input_edge_rows": 15091983,
+  "stored_edges": 15091983,
+  "synapse_count_sum": 54492922,
+  "orientation": "W[postsynaptic, presynaptic]",
+  "normalization": "signed aggregate / max(1, row absolute sum)",
+  "row_order": "Completeness source order; pre indices sorted within rows",
+  "weight_dtype": "float64",
+  "id_dtype": "uint64",
+  "pre_index_dtype": "uint32",
+  "no_outgoing_edges": 634,
+  "no_incoming_edges": 1549,
+  "csr_bytes": 183322052,
+  "csr_sha256": "61203093733cffe0cde4fb60c5059fb2b76ddb1bb8576e574320ef765079ccb9"
+}

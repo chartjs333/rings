@@ -1,0 +1,44 @@
+[
+  {
+    "validation": "all_steps",
+    "steps": 400,
+    "nodes": 138639,
+    "avx2": {
+      "max_activity_error": 0,
+      "max_phase_error": 0,
+      "activity_bit_mismatches": 0,
+      "phase_bit_mismatches": 0,
+      "gate_mismatches": 0
+    },
+    "avx512": {
+      "max_activity_error": 0,
+      "max_phase_error": 0,
+      "activity_bit_mismatches": 0,
+      "phase_bit_mismatches": 0,
+      "gate_mismatches": 0
+    },
+    "passed": true,
+    "threads": 1
+  },
+  {
+    "validation": "all_steps",
+    "steps": 400,
+    "nodes": 138639,
+    "avx2": {
+      "max_activity_error": 0,
+      "max_phase_error": 0,
+      "activity_bit_mismatches": 0,
+      "phase_bit_mismatches": 0,
+      "gate_mismatches": 0
+    },
+    "avx512": {
+      "max_activity_error": 0,
+      "max_phase_error": 0,
+      "activity_bit_mismatches": 0,
+      "phase_bit_mismatches": 0,
+      "gate_mismatches": 0
+    },
+    "passed": true,
+    "threads": 4
+  }
+]
