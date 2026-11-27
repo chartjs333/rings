@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.runtime/
+data/
+results/
+*.so
+*.dll
+*.dylib
+original/rings_cifar10/mc_tests
+original/rings_cifar10/mc_tests_ubsan
+
