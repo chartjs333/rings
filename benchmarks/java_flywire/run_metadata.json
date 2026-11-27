@@ -1,0 +1,39 @@
+{
+  "run_id": 46013033626,
+  "run_url": "https://github.com/chartjs333/rings/actions/runs/46013033626",
+  "job_id": 140553075569,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "head_sha": "d6d0f38ed80bf82eeedf8f35b18224e2e4c2407c",
+  "branch": "codex/java-flywire-benchmark",
+  "created_at": "2026-11-27T14:07:15Z",
+  "updated_at": "2026-11-27T14:11:22Z",
+  "artifact": {
+    "id": 15204379947,
+    "name": "java-cpp-flywire-measurements",
+    "size_in_bytes": 9765,
+    "url": "https://api.github.com/repos/chartjs333/rings/actions/artifacts/15204379947",
+    "archive_download_url": "https://api.github.com/repos/chartjs333/rings/actions/artifacts/15204379947/zip",
+    "expired": false,
+    "created_at": "2026-11-27T14:11:20Z",
+    "expires_at": "2026-12-27T14:11:19Z",
+    "updated_at": "2026-11-27T14:11:20Z",
+    "digest": "sha256:8db932e2f29a922623b407f74d7e2d0eb7be2a9149a6891e98d6884b5cd6ce8e",
+    "workflow_run": {
+      "id": 46013033626,
+      "repository_id": 1450211727,
+      "head_repository_id": 1450211727,
+      "head_branch": "codex/java-flywire-benchmark",
+      "head_sha": "d6d0f38ed80bf82eeedf8f35b18224e2e4c2407c"
+    }
+  },
+  "results_source": "Decoded completed job logs: RESULT_JSON record",
+  "validation": {
+    "cpp_graph_test": "success",
+    "python_unit_tests": 25,
+    "java_self_test": "success",
+    "per_step_bitwise_match": true,
+    "all_15_timed_final_states_equal": true
+  }
+}
