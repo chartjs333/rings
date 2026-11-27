@@ -1,0 +1,81 @@
+name: Java and C++ FlyWire benchmark
+on:
+  push:
+    branches: [codex/java-flywire-benchmark]
+    paths:
+      - "java/**"
+      - "cpp/**"
+      - "original/rings_cifar10/rings.hpp"
+      - "scripts/run_java_comparison.py"
+      - "scripts/prepare_flywire_benchmark.py"
+      - ".github/workflows/java-benchmark.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: java-flywire-benchmark
+  cancel-in-progress: true
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install data readers
+        run: python -m pip install numpy scipy pyarrow pandas
+      - name: Compile and test
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/java .runtime/java_checks
+          g++ -O3 -std=c++17 -fopenmp -ffp-contract=off -Wall -Wextra cpp/benchmark_simd.cpp -o build/benchmark_simd
+          g++ -O3 -std=c++17 -fopenmp -ffp-contract=off -Wall -Wextra cpp/trace_reference.cpp -o build/trace_reference
+          g++ -O3 -std=c++17 -fopenmp -ffp-contract=off cpp/test.cpp -o build/rings_graph_test
+          javac --release 21 -Xlint:all -d build/java java/RingsBenchmark.java
+          OMP_NUM_THREADS=4 build/rings_graph_test
+          PYTHONPATH=src python -m unittest discover -s tests -v
+          java -cp build/java RingsBenchmark --self-test | tee .runtime/java_checks/self_test.json
+      - name: Load full pinned FlyWire data
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from scripts.download_flywire import download
+          download(Path(".runtime/shiu_v783"))
+          PY
+          python scripts/prepare_flywire_benchmark.py --completeness .runtime/shiu_v783/Completeness_783.csv --connectivity .runtime/shiu_v783/Connectivity_783.parquet --output .runtime/java_graph/graph.bin
+      - name: Validate and benchmark sequentially on this runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/run_java_comparison.py --graph .runtime/java_graph/graph.bin --out .runtime/java_comparison
+          python -m pip freeze > .runtime/java_comparison/python_packages.txt
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          report = json.loads(Path(".runtime/java_comparison/comparison.json").read_text())
+          print("RESULT_JSON " + json.dumps(report, separators=(",", ":")))
+          PY
+      - name: Preserve compact measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-cpp-flywire-measurements
+          include-hidden-files: true
+          retention-days: 30
+          path: |
+            .runtime/java_comparison/*.json
+            .runtime/java_comparison/*.md
+            .runtime/java_comparison/*.txt
+            .runtime/java_checks/*.json
+            .runtime/java_graph/*.json
