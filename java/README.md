@@ -1,5 +1,7 @@
 # Java RINGS graph implementation and C++ comparison
 
+For the MIDI-to-WAV renderer and Windows launch commands, see [Bach Chaconne on the FlyWire graph](../docs/CHACONNE_RU.md).
+
 This Java 21 implementation ports the graph dynamics from
 `cpp/rings_graph.hpp`, preserving binary64 operation order, the original
 phase wrap formula, signed row-normalized CSR weights, synchronous state

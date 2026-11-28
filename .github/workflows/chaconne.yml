@@ -1,0 +1,48 @@
+name: Chaconne Java 21 Windows smoke
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'java/Chaconne*.java'
+      - 'java/RingsBenchmark.java'
+      - 'scripts/render_chaconne.py'
+      - 'scripts/prepare_chaconne_coordinates.py'
+      - 'music/**'
+      - 'tests/test_chaconne_render.py'
+      - 'tests/java/ChaconneScoreTest.java'
+      - '.github/workflows/chaconne.yml'
+  pull_request:
+    paths:
+      - 'java/Chaconne*.java'
+      - 'java/RingsBenchmark.java'
+      - 'scripts/render_chaconne.py'
+      - 'scripts/prepare_chaconne_coordinates.py'
+      - 'music/**'
+      - 'tests/test_chaconne_render.py'
+      - 'tests/java/ChaconneScoreTest.java'
+      - '.github/workflows/chaconne.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  windows-java-21:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the normal JDK executables
+        run: |
+          java -version
+          javac -version
+          python --version
+      - name: Unit checks and complete MIDI render on a four-node fixture
+        run: python -m unittest discover -s tests -p test_chaconne_render.py -v
